@@ -35,7 +35,7 @@ axes1 = axes(...
     'FontSize', 24);
 hold on
 
-plot(K, KPRIME(t,:) )
+plot(K, KPRIME(t,:))
 xlabel('k(t)')
 ylabel('k(t+1)')
 
@@ -50,15 +50,15 @@ for t=1:T-1
     loc_k(t + 1) = indxg(t, loc_k(t));
 end    
 
-ksim = K(loc_k)
+%ksim = K(loc_k)
 % wealth goes down monotonically over life cycle
 % input: ksim = K(loc_k), ksim
-
-clf
-axes1 = axes(...
-    'FontName', 'Times New Roman',...
-    'FontSize', 24);
-hold on
-plot(1:T, ksim, 'LineWidth',4)
-xlabel('t')
-ylabel('k(t)')
+% 
+% clf
+% axes1 = axes(...
+%     'FontName', 'Times New Roman',...
+%     'FontSize', 24);
+% hold on
+% plot(1:T, ksim, 'LineWidth',4)
+% xlabel('t')
+% ylabel('k(t)')

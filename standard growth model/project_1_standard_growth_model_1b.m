@@ -11,7 +11,7 @@ alpha = 0.36;
 z = 1;
 delta = 1;
 
-N = 101;
+N = 707;
 k_ss = (((1/beta) - 1 + delta)* (1/(alpha * z))).^(1 / (alpha - 1));
 K = [(0.8 * k_ss):((1.2 * k_ss)-(0.8 * k_ss))/(N - 1):(1.2 * k_ss)]';
 
@@ -32,6 +32,8 @@ while (err_crit > 0.00001)
     V = TV;
 end
 
+KPRIME = K(indxg);
+
 % simulating the economy with  an initial capital stock 
 % of k_1 = coeff *k_ss, where coeff is specified below.
 
@@ -46,7 +48,7 @@ ksim(1) = (coeff * k_ss);   % our initial capital stock.
 
 for t = 1:39        % we specify 40 periods, since the functions converge
                     % rather quickly.
-    loc_k(t + 1) = indxg(loc_k(t));     % we  recursively build a 40-entry 
+    loc_k(t + 1) = indxg(loc_k(t));     % we recursively build a 40-entry 
                                         % vector of locations of subsequent
                                         % values of K (starting from our
                                         % initial capital stock, onwards)
@@ -57,7 +59,9 @@ end
 ksim = K(loc_k)     % similarly to part 1a, we use the index vector we 
                     % built here, loc_k, to specify the numerical solution.
                     % this will be shown in blue.
-                    
+
+kprimesim = KPRIME(loc_k);
+
 k_analytic = alpha * beta * (K(loc_k) .^alpha)  % similarly as before, we
                                                 % show the analytic
                                                 % solution in red.
@@ -67,7 +71,8 @@ axes1 = axes(...
     'FontName', 'Helvetica',...
     'FontSize', 18);
 hold on
-plot(1:40, ksim, 'LineWidth',4)
+%plot(1:40, ksim, 'LineWidth',4)
+plot(1:40, kprimesim, 'LineWidth',4)
 plot(1:40, k_analytic, ':', 'LineWidth', 3)
 xlabel('t')
 ylabel('k(t)')

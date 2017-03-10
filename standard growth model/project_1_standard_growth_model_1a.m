@@ -88,6 +88,7 @@ hold on
 
 plot(K, KPRIME, 'LineWidth', 4) % plot of numerical capital growth eqn
 plot(K, KPRIME_A,':','LineWidth', 3) % plot of analytic capital growth eqn
+plot(0.1963*ones(size(K)), K,':','LineWidth', 1) % plot of analytic capital growth eqn
 plot(K,K)   % 45 deg line
 legend('Numerical', 'Analytical')
 xlabel('k')

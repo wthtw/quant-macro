@@ -5,7 +5,7 @@ w=0.1;
 
 N=1001;
 K=[-0.1:1/(N-1):1]';
-[N nx] = size(K)
+[N nx] = size(K);
 
 for i=1:N
 

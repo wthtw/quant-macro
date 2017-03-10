@@ -1,7 +1,7 @@
 % basic graphing
 
 x = [1:10];
-y = x.^2;       % entry-wise squaring of elements in grid x, plots out y=x^2
+y = x.^2;       % entry-wise squaring of elements in grid x plots out y=x^2
 y2 = x;         % y = x for elements x in x
 clf;            % clear current figures
 plot(x, y, 'd-', x, y2, 'r-');       % plot y and y2 as functions of x
