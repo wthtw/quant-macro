@@ -44,14 +44,14 @@ display('------------------------------')
 display('corr(y(t),y(t+1))')
 disp(corr(dt_y(TP:T)',dt_y(TP-1:T-1)'))
 
-% clf
-% TP2=T-100;
-% plot(dt_y(TP2:T))
-% hold on
-% plot(dt_c(TP2:T),'.-r')%;plot(dt_c(TP2:T),'r')
-% plot(dt_invest(TP2:T),'g')
-% plot(dt_z(TP2:T),'k--')
-% legend('output','consumption','investment','TFP')
+clf
+TP2=T-100;
+plot(dt_y(TP2:T))
+hold on
+plot(dt_c(TP2:T),'.-r')%;plot(dt_c(TP2:T),'r')
+plot(dt_invest(TP2:T),'g')
+plot(dt_z(TP2:T),'k--')
+legend('output','consumption','investment','TFP')
 
 
 TP=1;
@@ -62,15 +62,4 @@ for T=10000:10000:70000
     stdy(i) = std(dt_y(TP:T));
     i=i+1;
 end
-
-figure(1)
-time=(TP:1:T);
-plot(time, dt_y,':','LineWidth', 2)
-plot(time, dt_c,':','LineWidth', 1)
-plot(time, dt_invest,':','LineWidth', 3)
-legend('Y(t)', 'C(t)', 'I(t)');
-xlabel('Time (t)')
-ylabel('% dev from trend')
-title('Time-series')
-
 
